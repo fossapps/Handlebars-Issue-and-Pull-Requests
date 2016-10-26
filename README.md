@@ -13,9 +13,10 @@ This boilerplate allows the quick creation of npm modules written in Typescript.
 Initially you should:
 
 - clone this repository
-- change the package name in package.json
-- update the README.md
+- update `package.json` (name, repository and description)
+- update `README.md`
 - run `npm run setup` once
+- uncomment `after_success` block in `.travis.yml` to activate semantic-release
 
 Afterwards you can start implementing classes and tests :)
 

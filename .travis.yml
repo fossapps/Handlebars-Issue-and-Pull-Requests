@@ -28,5 +28,5 @@ script:
   - npm run lint -s
   - npm run build -s
 
-after_success:
-  - npm run semantic-release
+#after_success:
+#  - npm run semantic-release
