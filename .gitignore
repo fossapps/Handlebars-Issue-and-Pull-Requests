@@ -1,0 +1,12 @@
+/.idea/
+/build/
+/coverage/
+/dist/
+/jspm_packages/
+/node_modules/
+/report/
+/typings/
+.DS_Store
+.tgz
+.npmrc
+yarn.lock

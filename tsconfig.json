@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": true,
+        "noImplicitAny": false,
+        "removeComments": false,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "build",
+        "sourceMap": true
+    },
+    "filesGlob": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+    ],
+    "compileOnSave": true,
+    "buildOnSave": false,
+    "files": [
+        "typings/index.d.ts",
+        "src/**/*.ts",
+        "test/**/*.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
