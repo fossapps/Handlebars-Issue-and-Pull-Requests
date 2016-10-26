@@ -1,5 +1,7 @@
 # ts-module-boilerplate
 
+[![Build Status](https://travis-ci.org/crazyfactory/ts-module-boilerplate.svg)](https://travis-ci.org/crazyfactory/ts-module-boilerplate)
+
 This boilerplate allows the quick creation of npm modules written in Typescript.
 
 - Typescript 2.x
