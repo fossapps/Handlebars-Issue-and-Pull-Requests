@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "es2015",
+    "babili"
+  ],
+  "plugins": [
+    "remove-comments",
+    "transform-remove-console",
+    "transform-remove-debugger",
+    "minify-simplify"
+  ]
+}
+

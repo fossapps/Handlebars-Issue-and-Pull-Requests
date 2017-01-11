@@ -1,5 +1,5 @@
 
-import {MyClass} from "../src/MyClass";
+import {MyClass} from "./MyClass";
 
 describe("MyClass", () => {
     it("is defined", () => {

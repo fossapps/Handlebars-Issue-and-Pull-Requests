@@ -1,6 +1,0 @@
-test/ export-ignore
-typings/ export-ignore
-.gitignore export-ignore
-config.js export-ignore
-gulpfile.js export-ignore
-karma.conf.js export-ignore

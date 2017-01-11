@@ -1,0 +1,27 @@
+# tools
+.vscode/
+.idea/
+
+# tests
+lib/**/*.spec.*
+lib.es2015/**/*.spec.*
+coverage/
+
+# misc
+.DS_Store
+*.tgz
+npm-debug.log*
+yarn.lock
+
+# sources and build tools
+src/
+.npmignore
+.babelrc
+.editorconfig
+.travis.yml
+gulpfile.js
+karma.conf.js
+tsconfig.json
+tsconfig.es2015.json
+tslint.json
+webpack.config.js

@@ -1,12 +1,18 @@
-/.idea/
-/build/
-/coverage/
-/dist/
-/jspm_packages/
-/node_modules/
-/report/
-/typings/
+# tools
+.vscode/
+.idea/
+
+# builds
+lib/
+lib.es2015/
+umd/*.js
+coverage/
+
+# dependencies
+node_modules/
+
+# misc
 .DS_Store
-.tgz
-.npmrc
+*.tgz
+npm-debug.log*
 yarn.lock

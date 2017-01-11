@@ -1,71 +1,53 @@
 {
   "name": "@crazy-factory/ts-module-boilerplate",
-  "description": "My package description.",
-  "main": "dist/bundle.js",
-  "typings": "dist/bundle.d.ts",
+  "description": "",
+  "main": "./lib/index.js",
+  "typings": "./lib/index",
+  "module": "./lib.es2015/index.js",
+  "jsnext:main": "./lib.es2015/index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "files": [
-    "/dist/"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/crazyfactory/ts-http-client.git"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-preset-babili": "0.0.5",
-    "babel-preset-es2015": "^6.18.0",
-    "del": "^2.2.0",
-    "dts-bundle": "^0.6.1",
-    "ghooks": "^1.3.2",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-sourcemaps": "^2.2.0",
-    "gulp-tslint": "^6.1.2",
-    "gulp-typescript": "^3.0.2",
-    "istanbul": "^0.4.5",
+    "@types/es6-shim": "^0.31.32",
+    "@types/jasmine": "^2.5.38",
+    "@types/node": "^6.0.45",
+    "babel-polyfill": "^6.20.0",
+    "del": "^2.2.2",
+    "del-cli": "^0.2.1",
+    "es6-shim": "^0.35.2",
+    "husky": "^0.12.0",
+    "jasmine": "^2.5.2",
     "jasmine-core": "^2.4.1",
-    "jspm": "0.16.47",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
-    "karma-jspm": "^2.0.2",
-    "karma-sourcemap-loader": "^0.3.6",
-    "merge2": "^1.0.2",
-    "plato": "^1.7.0",
-    "run-sequence": "^1.2.2",
-    "semantic-release": "^4.3.5",
-    "systemjs-builder": "^0.15.32",
-    "tslint": "^3.15.1",
-    "typescript": "^2.0.3",
-    "validate-commit-msg": "^2.8.2"
+    "karma-typescript": "git+https://github.com/monounity/karma-typescript.git#2.1.6",
+    "node-fetch": "^1.6.3",
+    "semantic-release": "^6.3.2",
+    "ts-node": "^1.7.2",
+    "tslint": "^4.1.0",
+    "tslint-microsoft-contrib": "^4.0.0",
+    "typescript": "^2.1.4",
+    "validate-commit-msg": "^2.8.2",
+    "webpack": "^1.14.0",
+    "whatwg-fetch": "^2.0.1"
   },
   "scripts": {
     "test": "karma start",
-    "build": "gulp build",
-    "clean": "gulp clean",
-    "compile": "gulp compile",
-    "compile-w": "gulp compile-w",
-    "lint-w": "gulp tslint-w",
-    "lint": "gulp tslint",
-    "plato": "gulp plato",
-    "setup": "npm i -g gulp typings yarn jspm && yarn && jspm install && typings install",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  },
-  "jspm": {
-    "dependencies": {},
-    "devDependencies": {
-      "typescript": "npm:typescript"
-    }
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "gulp tslint",
-      "commit-msg": "validate-commit-msg",
-      "pre-push": "npm run build && npm run test"
-    }
+    "build": "npm run clean && tsc -p . && tsc -p tsconfig.es2015.json && webpack ./webpack.config.js",
+    "clean": "del-cli ./lib ./lib.es2015 ./coverage ./umd/**/*.js",
+    "lint": "tslint -t stylish './src/**/*.ts'",
+    "lint-fix": "npm run lint -s -- --fix",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "precommit": "npm run lint -s",
+    "commitmsg": "validate-commit-msg",
+    "prepush": "npm run build -s && npm run test -s"
   }
 }
