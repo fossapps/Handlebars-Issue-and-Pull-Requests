@@ -13,7 +13,9 @@ module.exports = function (config) {
         },
 
         karmaTypescriptConfig: {
-            excludeFromCoverage: /(\.d|\.spec|\.test)\.ts/,
+            coverageOptions: {
+                exclude: /(\.d|\.spec|\.test)\.ts/
+            },
             reports: {
                 "clover": "coverage",
                 "html": "coverage",
