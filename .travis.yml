@@ -9,8 +9,8 @@ addons:
 
 cache:
   directories:
-    - node_modules
-    - /usr/local/lib/node_modules
+  - node_modules
+  - /usr/local/lib/node_modules
 
 before_install:
   - export CHROME_BIN=chromium-browser
