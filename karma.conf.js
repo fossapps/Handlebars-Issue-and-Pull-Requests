@@ -18,7 +18,11 @@ module.exports = function (config) {
             },
             reports: {
                 "clover": "coverage",
-                "lcov": "coverage",
+                "html": "coverage",
+                "lcovonly": {
+                    "directory": "coverage",
+                    "filename": "lcov.info",
+                },
                 "json-summary": "coverage",
                 "json": "coverage",
                 "text": null
