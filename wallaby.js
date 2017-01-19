@@ -1,7 +1,10 @@
 module.exports = function (wallaby) {
     return {
         bootstrap: function() {
-            global.fetch = require('node-fetch');
+            var fetch = require('node-fetch');
+            global.fetch = global.fetch || fetch;
+            global.Request = global.Request || fetch.Request;
+            global.Response = global.Response || fetch.Response;
         },
         files: [
             'src/**/*.ts',
