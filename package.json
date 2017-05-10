@@ -18,7 +18,7 @@
     "@types/jasmine": "^2.5.40",
     "@types/node": "^7.0.15",
     "del": "^2.2.2",
-    "del-cli": "^0.2.1",
+    "del-cli": "^1.0.0",
     "es6-shim": "^0.35.2",
     "husky": "^0.13.1",
     "jasmine": "^2.5.3",
