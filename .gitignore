@@ -8,6 +8,8 @@ lib.es2015/
 umd/*.js
 coverage/
 
+.jest
+dist
 # dependencies
 node_modules/
 

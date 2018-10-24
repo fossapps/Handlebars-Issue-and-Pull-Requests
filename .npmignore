@@ -25,3 +25,5 @@ tsconfig.json
 tsconfig.es2015.json
 tslint.json
 webpack.config.js
+.jest
+coverage
