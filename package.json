@@ -10,8 +10,9 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/crazyfactory/ts-http-client.git"
+    "url": "https://github.com/crazyfactory/ts-module-boilerplate.git"
   },
+  "homepage": "https://github.com/crazyfactory/tslint-rules",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^23.3.7",
