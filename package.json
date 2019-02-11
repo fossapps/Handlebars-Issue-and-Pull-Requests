@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/crazyfactory/ts-module-boilerplate.git"
   },
-  "homepage": "https://github.com/crazyfactory/tslint-rules",
+  "homepage": "https://github.com/crazyfactory/ts-module-boilerplate",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^23.3.7",
