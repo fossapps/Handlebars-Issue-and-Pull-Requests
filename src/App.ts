@@ -5,14 +5,12 @@ import {IPayloadHelper, PayloadHelper} from "./PayloadHelper";
 
 export type TData = Webhooks.WebhookPayloadPullRequest | Webhooks.WebhookPayloadIssues;
 
-// tslint:disable-next-line:no-unnecessary-class
 export class App {
     constructor(private ghHelper: IGithubIssueHelper, private payloadHelper: IPayloadHelper, private context: Context<TData>) {
     }
 
     public static handle(context: Application): void {
-        context.on("pull_request.opened", App.handleEvent);
-        context.on("issues.opened", App.handleEvent);
+        context.on(["pull_request.opened", "issues.opened", "issues.edited", "pull_request.edited"], App.handleEvent);
     }
 
     private static handleEvent(context: Context<TData>): Promise<void> {

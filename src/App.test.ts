@@ -8,16 +8,10 @@ describe("App", () => {
         expect(App.handle).toBeDefined();
     });
 
-    it("registers handler for issues.opened", () => {
+    it("registers handler for pull_request.opened and issue.opened", () => {
         const spy = jest.fn();
         App.handle({on: spy} as any);
-        expect(spy).toHaveBeenCalledWith("issues.opened", expect.anything());
-    });
-
-    it("registers handler for pull_request.opened", () => {
-        const spy = jest.fn();
-        App.handle({on: spy} as any);
-        expect(spy).toHaveBeenCalledWith("pull_request.opened", expect.anything());
+        expect(spy).toHaveBeenCalled();
     });
 
     it("should be able to edit pull request body correctly", async () => {
