@@ -13,10 +13,17 @@
     "url": "https://github.com/crazyfactory/ts-module-boilerplate.git"
   },
   "homepage": "https://github.com/crazyfactory/ts-module-boilerplate",
-  "dependencies": {},
+  "dependencies": {
+    "handlebars": "^4.1.2",
+    "hbs": "^4.0.4",
+    "probot": "^9.2.19",
+    "probot-serverless-now": "^2.1.1"
+  },
   "devDependencies": {
+    "@octokit/webhooks": "^6.2.2",
+    "@types/handlebars": "^4.1.0",
     "@types/jest": "^23.3.7",
-    "@types/node": "^10.12.0",
+    "@types/node": "^10.14.12",
     "del-cli": "^1.0.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
@@ -30,10 +37,12 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
+    "prestart": "npm run build",
+    "start": "node ./lib/index.js",
     "test": "jest",
     "test:no-cache": "jest --no-cache",
     "test:watch": "jest --watch",
-    "build": "npm run clean && tsc -p . && tsc -p tsconfig.es2015.json && webpack",
+    "build": "npm run clean && tsc -p .",
     "clean": "del-cli ./lib ./lib.es2015 ./coverage ./umd/**/*.js",
     "lint": "tslint -t stylish --project tsconfig.json './src/**/*.ts'",
     "lint:fix": "npm run lint -s -- --fix",

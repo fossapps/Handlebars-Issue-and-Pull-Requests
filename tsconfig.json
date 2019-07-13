@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "es6",
+    "module": "commonjs",
     "esModuleInterop": true,
-    "lib": ["es5", "scripthost", "dom", "es6"],
+    "lib": ["es5", "scripthost", "es6"],
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
+    "strict": true,
     "declaration": true,
     "moduleResolution": "node",
     "outDir": "./lib",
     "experimentalDecorators": true,
+    "skipLibCheck": true,
     "emitDecoratorMetadata": true,
     "preserveConstEnums": true
   },

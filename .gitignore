@@ -1,6 +1,8 @@
 # tools
 .vscode/
 .idea/
+.env
+Makefile
 
 # builds
 lib/

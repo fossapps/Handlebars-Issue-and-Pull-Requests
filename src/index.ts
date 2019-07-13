@@ -1,11 +1,8 @@
+import {Probot} from "probot";
+import {App} from "./App";
+import {getAppConfig} from "./AppConfig";
 
-/**
- * Root module
- */
-export * from "./MyClass";
-
-/**
- * Sub modules
- */
-// import * as Utils from "./utils/index";
-// export { Utils };
+const appConfig = getAppConfig();
+const probot = new Probot(appConfig);
+probot.load(App.handle);
+probot.start();
