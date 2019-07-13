@@ -1,30 +1,30 @@
-# ts-module-boilerplate
+# Handlebars-Issue-and-Pull-Requests
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/crazyfactory/ts-module-boilerplate.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/crazyfactory/ts-module-boilerplate.svg)](https://travis-ci.org/crazyfactory/ts-module-boilerplate)
-[![GitHub issues](https://img.shields.io/github/issues/crazyfactory/ts-module-boilerplate.svg)](https://github.com/crazyfactory/ts-module-boilerplate/issues)
-[![codecov](https://codecov.io/gh/crazyfactory/ts-module-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/crazyfactory/ts-module-boilerplate)
-[![devDependencies Status](https://david-dm.org/crazyfactory/ts-module-boilerplate/dev-status.svg)](https://david-dm.org/crazyfactory/ts-module-boilerplate?type=dev)
-[![dependencies Status](https://david-dm.org/crazyfactory/ts-module-boilerplate/status.svg)](https://david-dm.org/crazyfactory/ts-module-boilerplate)
+[![Greenkeeper badge](https://badges.greenkeeper.io/fossapps/Handlebars-Issue-and-Pull-Requests.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/fossapps/Handlebars-Issue-and-Pull-Requests.svg)](https://travis-ci.org/fossapps/Handlebars-Issue-and-Pull-Requests)
+[![GitHub issues](https://img.shields.io/github/issues/fossapps/Handlebars-Issue-and-Pull-Requests.svg)](https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/issues)
+[![devDependencies Status](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests/dev-status.svg)](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests?type=dev)
+[![dependencies Status](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests/status.svg)](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests)
 
-This boilerplate allows the quick creation of npm modules written in Typescript.
+Github app to run your issue body and pull request's body through handlebar to generate new bodies
 
-- Typescript 2.x
-- creates an ES5 bundle
-- creates a TypeScript declaration bundle
-- packs it for npm usage
-- uses karma for testing
-- uses travis and semantic-release for deployment
-- uses linting, coverage and git hooks to increase code quality.
-- is configured to support wallaby
+- Typescript 3.x
+- Automatically deploys to now.sh
+- uses jest for testing
+- uses travis and now.sh for deployment
+- uses linting and git hooks to increase code quality.
 
-## Usage
+## Contributing
 
 Initially you should:
 
+- create your test app (or do live and see what happens :) )
 - clone this repository
-- update `package.json` (name, repository and description)
-- create your own `README.md` (from the `README.tpl.md`-file)
-- uncomment `after_success` block in `.travis.yml` to activate semantic-release
-
-Afterwards you can start implementing classes and tests :)
+- npm install
+- comment last export on index.ts and add `probot.start` instead (or you can use the now cli)
+- create .env file and ensure you import those data (this project doesn't care about .env files)
+- npm start
+- forward your port so gh can send you events locally
+- make changes
+- push to your fork
+- create pull request
