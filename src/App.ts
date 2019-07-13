@@ -38,16 +38,32 @@ export class App {
     }
 
     private static async handleEvent(context: Context<TData>): Promise<void> {
-        const body = App.getBody(context.payload);
-        const templateVars = App.getTemplateVars(context.payload);
-        const newBody = App.getCompiledBody(body, templateVars);
-        if (App.isPr(context.payload)) {
-            await context.github.pulls.update(context.issue({body: newBody}));
-            context.log.debug("updated PR body");
-        } else {
-            await context.github.issues.update(context.issue({body: newBody}));
-            context.log.debug("updated ISSUE body");
+        try {
+            const body = App.getBody(context.payload);
+            const templateVars = App.getTemplateVars(context.payload);
+            const newBody = App.getCompiledBody(body, templateVars);
+            if (App.isPr(context.payload)) {
+                await context.github.pulls.update(context.issue({body: newBody}));
+                context.log.debug("updated PR body");
+            } else {
+                await context.github.issues.update(context.issue({body: newBody}));
+                context.log.debug("updated ISSUE body");
+            }
+        } catch (e) {
+            await context.github.issues.createComment(context.issue({body: this.getErrorComment(e)}));
         }
+    }
+
+    private static getErrorComment(error: Error): string {
+        const message = (error.stack) ? error.stack!.split("\n").join("\n>") : error.toString();
+        return `## There was error processing your body
+
+The exact error message is the following
+
+${message}
+
+This body won't be processed any further, please fix your template.
+`;
     }
 
     private static getTemplateVars(data: TData): ITemplateVars {
