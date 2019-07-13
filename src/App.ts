@@ -38,6 +38,7 @@ This body won't be processed any further, please fix your template.
             await this.ghHelper.updateBody(this.context.issue({body: newBody}));
             this.context.log.debug(`updated ${PayloadHelper.isPr(this.context.payload) ? "PR" : "issue"} body`);
         } catch (e) {
+            this.context.log.info(`Error: ${e.toString()}`);
             await this.ghHelper.comment(this.context.issue({body: App.getErrorComment(e)}));
         }
     }

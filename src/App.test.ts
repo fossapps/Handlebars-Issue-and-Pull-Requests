@@ -103,7 +103,8 @@ describe("App", () => {
                 body: payload.body
             }),
             log: {
-                debug: log
+                debug: log,
+                info: () => undefined as any
             }
         };
         const app = new App(ghHelper, payloadHelperMock, mockContext as any);
