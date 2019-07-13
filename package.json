@@ -53,7 +53,8 @@
     ],
     "coverageDirectory": "<rootDir>/coverage",
     "coveragePathIgnorePatterns": [
-      "index.ts"
+      "index.ts",
+      "AppConfig.ts"
     ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
     "moduleFileExtensions": [

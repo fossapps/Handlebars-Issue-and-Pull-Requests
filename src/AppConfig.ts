@@ -12,7 +12,7 @@ export const getAppConfig = (): IAppConfig => {
         throw new Error("WEBHOOK_SECRET not set");
     }
     if (!process.env.PRIVATE_KEY_ENCODED) {
-        throw new Error("PRIVATE_KEY_ENCODEDs not set");
+        throw new Error("PRIVATE_KEY_ENCODED not set");
     }
     const id = parseInt(process.env.APP_ID, 10);
     return {
