@@ -1,7 +1,7 @@
 # Handlebars-Issue-and-Pull-Requests
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/fossapps/Handlebars-Issue-and-Pull-Requests.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/fossapps/Handlebars-Issue-and-Pull-Requests.svg)](https://travis-ci.org/fossapps/Handlebars-Issue-and-Pull-Requests)
+[![Build Status](https://travis-ci.com/fossapps/Handlebars-Issue-and-Pull-Requests.svg)](https://travis-ci.com/fossapps/Handlebars-Issue-and-Pull-Requests)
 [![GitHub issues](https://img.shields.io/github/issues/fossapps/Handlebars-Issue-and-Pull-Requests.svg)](https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/issues)
 [![devDependencies Status](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests/dev-status.svg)](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests?type=dev)
 [![dependencies Status](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests/status.svg)](https://david-dm.org/fossapps/Handlebars-Issue-and-Pull-Requests)
