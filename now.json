@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "name": "handlebar-templates",
+  "alias": "ht",
+  "builds": [
+    {
+      "src": "/lib/index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/lib/index.js"
+    }
+  ],
+  "env": {
+    "LOG_LEVEL": "info",
+    "NODE_ENV": "production"
+  }
+}

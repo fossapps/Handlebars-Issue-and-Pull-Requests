@@ -18,7 +18,7 @@ export const getAppConfig = (): IAppConfig => {
     return {
         id,
         port: 3000,
-        secret: "cec47effc2b7d4c317d2dea65fc70384c3bcf8a7", // process.env.WEBHOOK_SECRET,
+        secret: process.env.WEBHOOK_SECRET,
         cert: Buffer.from(process.env.PRIVATE_KEY_ENCODED, "base64").toString("ascii")
     };
 };

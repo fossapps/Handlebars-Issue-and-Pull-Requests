@@ -38,17 +38,15 @@ export class App {
     }
 
     private static async handleEvent(context: Context<TData>): Promise<void> {
-        context.log.info("handling event");
         const body = App.getBody(context.payload);
         const templateVars = App.getTemplateVars(context.payload);
-        context.log.info("template vars:", templateVars);
         const newBody = App.getCompiledBody(body, templateVars);
         if (App.isPr(context.payload)) {
             await context.github.pulls.update(context.issue({body: newBody}));
-            context.log.info("updated PR body");
+            context.log.debug("updated PR body");
         } else {
             await context.github.issues.update(context.issue({body: newBody}));
-            context.log.info("updated ISSUE body");
+            context.log.debug("updated ISSUE body");
         }
     }
 
