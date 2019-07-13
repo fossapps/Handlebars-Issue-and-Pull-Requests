@@ -1,5 +1,5 @@
 {
-  "name": "@crazy-factory/ts-module-boilerplate",
+  "name": "@fossapps/handlebars.templates",
   "description": "",
   "main": "./lib/index.js",
   "typings": "./lib/index",
