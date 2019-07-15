@@ -33,15 +33,14 @@
   },
   "scripts": {
     "prestart": "npm run build",
-    "start": "node ./lib/index.js",
+    "start": "node ./lib/server.js",
     "test": "jest",
     "test:no-cache": "jest --no-cache",
     "test:watch": "jest --watch",
     "build": "npm run clean && tsc -p .",
     "clean": "del-cli ./lib ./coverage",
     "lint": "tslint -t stylish --project tsconfig.json './src/**/*.ts'",
-    "lint:fix": "npm run lint -s -- --fix",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "lint:fix": "npm run lint -s -- --fix"
   },
   "jest": {
     "transform": {

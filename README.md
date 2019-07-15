@@ -22,8 +22,8 @@ Initially you should:
 - create your test app (or do live and see what happens :) )
 - clone this repository
 - npm install
-- comment last export on index.ts and add `probot.start` instead (or you can use the now cli)
-- create .env file and ensure you import those data (this project doesn't care about .env files)
+- npm start
+- create .env file and ensure you import those env (this project doesn't care about .env files)
 - npm start
 - forward your port so gh can send you events locally
 - make changes

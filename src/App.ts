@@ -1,11 +1,12 @@
 import * as Webhooks from "@octokit/webhooks";
-import {Application, Context} from "probot";
+import {Application, Context, Probot} from "probot";
+import {getAppConfig} from "./AppConfig";
 import {GithubIssueHelper, IGithubIssueHelper} from "./GithubIssueHelper";
 import {IPayloadHelper, PayloadHelper} from "./PayloadHelper";
 
 export type TData = Webhooks.WebhookPayloadPullRequest | Webhooks.WebhookPayloadIssues;
 
-export class App {
+class App {
     constructor(private ghHelper: IGithubIssueHelper, private payloadHelper: IPayloadHelper, private context: Context<TData>) {
     }
 
@@ -42,3 +43,8 @@ This body won't be processed any further, please fix your template.
         }
     }
 }
+
+const appConfig = getAppConfig();
+const probot = new Probot(appConfig);
+probot.load(App.handle);
+export {App, probot};
