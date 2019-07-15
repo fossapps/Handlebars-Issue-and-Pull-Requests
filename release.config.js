@@ -40,7 +40,7 @@ module.exports = {
         },
         {
             path: "@semantic-release/exec",
-            cmd: "echo \"$DOCKER_HUB_PASSWORD\" | docker login -u \"$DOCKER_HUB_USER\" --password-stdin"
+            cmd: "echo \"$DOCKERHUB_PASSWORD\" | docker login -u \"$DOCKERHUB_LOGIN\" --password-stdin"
         }
     ],
     publish: [
