@@ -28,7 +28,7 @@ describe("App", () => {
             payload: {
                 pull_request: {}
             },
-            issue: (payload: {body: string}): IPayload => ({
+            issue: (payload: { body: string }): IPayload => ({
                 number: 1,
                 repo: "",
                 owner: "",
@@ -58,7 +58,7 @@ describe("App", () => {
             payload: {
                 issue: {}
             },
-            issue: (payload: {body: string}): IPayload => ({
+            issue: (payload: { body: string }): IPayload => ({
                 number: 1,
                 repo: "",
                 owner: "",
@@ -90,7 +90,7 @@ describe("App", () => {
             payload: {
                 issue: {}
             },
-            issue: (payload: {body: string}): IPayload => ({
+            issue: (payload: { body: string }): IPayload => ({
                 number: 1,
                 repo: "",
                 owner: "",

@@ -1,12 +1,11 @@
 import * as Webhooks from "@octokit/webhooks";
-import {Application, Context, Probot} from "probot";
-import {getAppConfig} from "./AppConfig";
+import {Application, Context} from "probot";
 import {GithubIssueHelper, IGithubIssueHelper} from "./GithubIssueHelper";
 import {IPayloadHelper, PayloadHelper} from "./PayloadHelper";
 
 export type TData = Webhooks.WebhookPayloadPullRequest | Webhooks.WebhookPayloadIssues;
 
-class App {
+export class App {
     constructor(private ghHelper: IGithubIssueHelper, private payloadHelper: IPayloadHelper, private context: Context<TData>) {
     }
 
@@ -38,13 +37,7 @@ This body won't be processed any further, please fix your template.
             this.context.log.debug(`updated ${PayloadHelper.isPr(this.context.payload) ? "PR" : "issue"} body`);
         } catch (e) {
             this.context.log.info(`Error: ${e.toString()}`);
-            console.warn(`Error: ${e.toString()}`);
             await this.ghHelper.comment(this.context.issue({body: App.getErrorComment(e)}));
         }
     }
 }
-
-const appConfig = getAppConfig();
-const probot = new Probot(appConfig);
-probot.load(App.handle);
-export {App, probot};
