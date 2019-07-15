@@ -36,7 +36,7 @@ module.exports = {
     prepare: [
         {
             path: "@semantic-release/exec",
-            cmd: "docker tag fossapps/handlebar-templates:${nextRelease.version}"
+            cmd: "docker tag fossapps/handlebar-templates:latest fossapps/handlebar-templates:${nextRelease.version}"
         },
         {
             path: "@semantic-release/exec",
