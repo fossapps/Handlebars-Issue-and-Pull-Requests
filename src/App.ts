@@ -14,6 +14,7 @@ export class App {
     }
 
     private static handleEvent(context: Context<TData>): Promise<void> {
+        context.log.info(`handling ${context.event} event`);
         const app = new App(new GithubIssueHelper(context.github, PayloadHelper.isPr(context.payload)), new PayloadHelper(context), context);
         return app.handleEvent();
     }
