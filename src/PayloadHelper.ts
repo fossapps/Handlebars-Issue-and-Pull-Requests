@@ -21,6 +21,7 @@ export interface ITemplateVars {
         diff_url: string;
         patch_url: string;
         issue_url: string;
+        branch: string;
     };
     labels: WebhookPayloadIssuesIssueLabelsItem[];
 }
@@ -55,7 +56,8 @@ export class PayloadHelper implements IPayloadHelper {
                 diff_url: prPayload.pull_request.diff_url,
                 html_url: prPayload.pull_request.html_url,
                 issue_url: prPayload.pull_request.issue_url,
-                patch_url: prPayload.pull_request.patch_url
+                patch_url: prPayload.pull_request.patch_url,
+                branch: prPayload.pull_request.head.ref
             }
         };
     }
