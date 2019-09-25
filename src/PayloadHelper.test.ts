@@ -64,11 +64,25 @@ describe("PayloadHelper", () => {
             expect(helper.getTemplateVariables()).toStrictEqual(expectedData);
         });
         it("should be able to return pull request variables", () => {
+            // @ts-ignore
             const context: Context<Webhooks.WebhookPayloadPullRequest> = {
                 payload: {
                     // @ts-ignore
                     pull_request: {
                         body: "pr_body",
+                        head: {
+                            ref: "test-branch",
+                            label: "",
+                            sha: "",
+                            // @ts-ignore
+                            repo: {
+                                id: 1,
+                                node_id: "1",
+                                name: "",
+                                full_name: "",
+                                private: false
+                            }
+                        },
                         number: 5,
                         labels: [],
                         patch_url: "https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/pull/1.patch",
@@ -97,7 +111,8 @@ describe("PayloadHelper", () => {
                     patch_url: "https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/pull/1.patch",
                     issue_url: "https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/pull/1",
                     html_url: "https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/pull/1",
-                    diff_url: "https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/pull/1.diff"
+                    diff_url: "https://github.com/fossapps/Handlebars-Issue-and-Pull-Requests/pull/1.diff",
+                    branch: "test-branch"
                 },
                 id: 5
             };
