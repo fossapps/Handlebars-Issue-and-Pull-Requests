@@ -14,6 +14,7 @@ Github app to run your issue body and pull request's body through handlebar to g
 - uses jest for testing
 - uses travis and now.sh for deployment
 - uses linting and git hooks to increase code quality.
+- automatically creates and pushes to docker hub
 
 ## Contributing
 
