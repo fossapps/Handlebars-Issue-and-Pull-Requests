@@ -16,7 +16,8 @@ describe("App", () => {
 
     it("should be able to edit pull request body correctly", async () => {
         const payloadHelperMock: IPayloadHelper = {
-            getNewBody: () => "new body with different data"
+            getNewBody: () => "new body with different data",
+            getOriginalBody: () => "old body with original data"
         };
         const updateMock = jest.fn();
         const ghHelper: IGithubIssueHelper = {
@@ -46,7 +47,8 @@ describe("App", () => {
 
     it("should be able to edit issue body correctly", async () => {
         const payloadHelperMock: IPayloadHelper = {
-            getNewBody: () => "new body with different data"
+            getNewBody: () => "new body with different data",
+            getOriginalBody: () => "old body with original data"
         };
         const updateMock = jest.fn();
         const ghHelper: IGithubIssueHelper = {
@@ -78,7 +80,8 @@ describe("App", () => {
         const payloadHelperMock: IPayloadHelper = {
             getNewBody: () => {
                 throw new Error("Error");
-            }
+            },
+            getOriginalBody: () => "old body with original data"
         };
         const commentMock = jest.fn();
         const ghHelper: IGithubIssueHelper = {
