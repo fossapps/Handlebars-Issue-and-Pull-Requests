@@ -19,7 +19,7 @@ export class App {
         return app.handleEvent();
     }
 
-    private static getErrorComment(error: Error, originalBody: string): string {
+    private static getErrorComment(error: Error): string {
         const message = (error.stack) ? error.stack!.split("\n").join("\n>") : error.toString();
         return `## There was error processing your body
 
@@ -27,25 +27,18 @@ The exact error message is the following
 
 ${message}
 
-This body won't be processed any further, please fix your template. Original Issue will be included below:
-
----
-
-${originalBody}
+This body won't be processed any further, please fix your template.
 `;
     }
 
     public async handleEvent(): Promise<void> {
         try {
-            if (this.payloadHelper.getOriginalBody().startsWith("## There was error processing your body")) {
-                return;
-            }
             const newBody = this.payloadHelper.getNewBody();
             await this.ghHelper.updateBody(this.context.issue({body: newBody}));
             this.context.log.debug(`updated ${PayloadHelper.isPr(this.context.payload) ? "PR" : "issue"} body`);
         } catch (e) {
             this.context.log.info(`Error: ${e.toString()}`);
-            await this.ghHelper.comment(this.context.issue({body: App.getErrorComment(e, this.payloadHelper.getOriginalBody())}));
+            await this.ghHelper.comment(this.context.issue({body: App.getErrorComment(e)}));
         }
     }
 }
