@@ -28,6 +28,7 @@ export interface ITemplateVars {
 
 export interface IPayloadHelper {
     getNewBody(): string;
+    getOriginalBody(): string;
 }
 
 export class PayloadHelper implements IPayloadHelper {
@@ -79,6 +80,10 @@ export class PayloadHelper implements IPayloadHelper {
         return PayloadHelper.isPr(this.context.payload)
             ? this.context.payload.pull_request.body
             : this.context.payload.issue.body;
+    }
+
+    public getOriginalBody(): string {
+        return this.getBodyFromPayload();
     }
 
 }
