@@ -15,7 +15,7 @@
     "dotenv": "^8.0.0",
     "handlebars": "^4.3.0",
     "hbs": "^4.0.4",
-    "probot": "^9.2.19"
+    "probot": "^12.2.8"
   },
   "devDependencies": {
     "@octokit/webhooks": "^6.2.2",
