@@ -76,9 +76,9 @@ export class PayloadHelper implements IPayloadHelper {
     }
 
     public getBodyFromPayload(): string {
-        return PayloadHelper.isPr(this.context.payload)
+        return (PayloadHelper.isPr(this.context.payload)
             ? this.context.payload.pull_request.body
-            : this.context.payload.issue.body;
+            : this.context.payload.issue.body) || "";
     }
 
 }
