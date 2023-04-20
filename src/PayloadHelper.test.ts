@@ -17,6 +17,18 @@ describe("PayloadHelper", () => {
         expect(payloadHelper.getBodyFromPayload()).toEqual("test body");
     });
 
+    it("should be able to return empty body for issue without a body", () => {
+        const context: Context<Webhooks.WebhookPayloadIssues> = {
+            payload: {
+                // @ts-ignore
+                issue: {
+                }
+            }
+        };
+        const payloadHelper = new PayloadHelper(context);
+        expect(payloadHelper.getBodyFromPayload()).toEqual("");
+    });
+
     it("should be able to get body for pull request", () => {
         const context: Context<Webhooks.WebhookPayloadPullRequest> = {
             payload: {
@@ -161,5 +173,26 @@ describe("PayloadHelper", () => {
         };
         const payloadHelper = new PayloadHelper(context);
         expect(payloadHelper.getNewBody()).toEqual("created new PR number 2 by cyberhck");
+    });
+
+    describe("getNewBody should be able to render empty body", () => {
+        const context: Context<Webhooks.WebhookPayloadIssues> = {
+            payload: {
+                // @ts-ignore
+                issue: {
+                    number: 2,
+                    labels: []
+                },
+                // @ts-ignore
+                sender: {
+                    avatar_url: "https://github.com/avatar.jpg",
+                    login: "cyberhck",
+                    url: "https://github.com/cyberhck",
+                    id: 12345
+                }
+            }
+        };
+        const payloadHelper = new PayloadHelper(context);
+        expect(payloadHelper.getNewBody()).toEqual("");
     });
 });
